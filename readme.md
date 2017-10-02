@@ -1,10 +1,10 @@
-使用 Raspberry Pi 3 進行感側器資料蒐集
+# 使用 Raspberry Pi 3 進行感側器資料蒐集
 
-說明：
+## 說明：
 本範例使用 Raspberry Pi 3 (RPi) 與 NodeMCU 建構一環境資訊蒐集系統，範例分為3部份
-    * envinfo_server：使用RPi作為主機接收所有感側器回傳的資料
-    * envinfo_client_rpi：使用RPi作為感側器的示範
-    * envinfo_client_nodemcu：使用NodeMCU作為感側器的示範
+* envinfo_server：使用RPi作為主機接收所有感側器回傳的資料
+* envinfo_client_rpi：使用RPi作為感側器的示範
+* envinfo_client_nodemcu：使用NodeMCU作為感側器的示範
 
 安裝：
 <envinfo_server>
