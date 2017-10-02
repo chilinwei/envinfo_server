@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block body %}
+<meta http-equiv="refresh" content="5"/>
+<table class="envdata">
+  <tr>
+    <th>id</th>
+    <th>uid</th>
+    <th>dt</th>
+    <th>Axis-X</th>
+    <th>Axis-Y</th>
+    <th>Axis-Z</th>
+    <th>Light</th>
+    <th>Tempature</th>
+    <th>Humidity</th>
+    <th>Volts</th>
+  </tr>
+  {% for env in data %}
+    <tr>
+      <td>{{ env[0] }}</td>
+      <td>{{ env[1] }}</td>
+      <td>{{ env[2] }}</td>
+
+      {% if env[4] == -999 %}
+        <td>--</td>
+      {% else %}
+        <td>{{ env[4] }}</td>
+      {% endif %}
+
+      {% if env[5] == -999 %}
+      <td>--</td>
+      {% else %}
+        <td>{{ env[5] }}</td>
+      {% endif %}
+
+      {% if env[6] == -999 %}
+        <td>--</td>
+      {% else %}
+        <td>{{ env[6] }}</td>
+      {% endif %}
+  
+      {% if env[7] == -999 %}
+        <td>--</td>
+      {% else %}
+        <td>{{ env[7] }}</td>
+      {% endif %}
+
+      {% if env[8] == -999 %}
+        <td>--</td>
+      {% else %}
+        <td>{{ env[8] }}</td>
+      {% endif %}
+
+      {% if env[9] == -999 %}
+        <td>--</td>
+      {% else %}
+        <td>{{ env[9] }}</td>
+      {% endif %}
+
+      {% if env[10] == -999 %}
+        <td>--</td>
+      {% else %}
+        <td>{{ env[10] }}</td>
+      {% endif %}
+      
+    </tr>
+  {% else %}
+    <tr>
+      <td colspan="10">No data.</td>
+    </tr>
+  {% endfor %}
+</table>
+<script type="text/javascript">
+console.log(data)
+</script>
+{% endblock %}
