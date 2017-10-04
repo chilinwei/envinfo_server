@@ -1,19 +1,20 @@
-# **使用 Raspberry Pi 3 進行感側器資料蒐集**
+# **使用 Raspberry Pi 3 進行感測器資料蒐集**
 
 本範例使用 Raspberry Pi 3 (RPi) 與 NodeMCU 建構一環境資訊蒐集系統，範例分為3部份
-- envinfo_server：使用RPi作為主機接收所有感側器回傳的資料
-- envinfo_client_rpi：使用RPi作為感側器的示範
-- envinfo_client_nodemcu：使用NodeMCU作為感側器的示範
+- envinfo_server：使用RPi作為主機接收所有感測器回傳的資料
+- envinfo_client_rpi：使用RPi作為感測器的示範
+- envinfo_client_nodemcu：使用NodeMCU作為感測器的示範
 
 ## **目錄**
-0. [系統架構說明](#系統架構說明)
-1. [RPi 作業系統安裝、設定與套件更新](#RPi作業系統安裝、設定與套件更新)
-2. [將 RPi 打造成無線存取點 (Wireless Access Point, WAP)](#將\ RPi\ 打造成無線存取點\ (Wireless\ Access\ Point,\ WAP))
-3. [安裝與佈署本範例程](#安裝與佈署本範例程)
+0. [系統架構說明](#0-系統架構說明)
+1. [RPi 作業系統安裝、設定與套件更新](#1-rpi作業系統安裝、設定與套件更新)
+2. [將 RPi 打造成無線存取點 (Wireless Access Point, WAP)](#2-將-rpi-打造成無線存取點-wireless-access-point-wap)
+3. [安裝與佈署本範例程](#3-安裝與佈署本範例程式)
     - [取得範例程式碼](#取得範例程式碼)
-    - [MariaDB 安裝、設定與資料庫佈署](#MariaDB\ 安裝、設定與資料庫佈署)
+    - [MariaDB 安裝、設定與資料庫佈署](#mariadb-安裝、設定與資料庫佈署)
+    - [建立資料庫、資料表與登入帳號](#建立資料庫、資料表與登入帳號)
     - [程式碼設定與試運行](#程式碼設定與試運行)
-    - [生產環境佈署 (使用 gunicorn + nginx + systemd)](#生產環境佈署 (使用 gunicorn + nginx + systemd))
+    - [生產環境佈署 (使用 gunicorn + nginx + systemd)](#生產環境佈署-使用-gunicorn-nginx-systemd)
 
 ### **0. 系統架構說明**
 <這裡放一張圖並說明>
@@ -241,7 +242,7 @@ MariaDB [(none)] > use envinfo;
 </pre>
 (6) 建立資料表 (sql指令請參考檔案 [schema.sql](/schema.sql))
 
-#### 範例程式安裝與測試
+#### 程式碼設定與試運行
 (1) 安裝相關套件
 <pre>
 $ sudo apt-get install python-pip python-dev python-virtualenv nginx
