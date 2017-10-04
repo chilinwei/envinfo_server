@@ -1,11 +1,11 @@
-# 使用 Raspberry Pi 3 進行感側器資料蒐集
+# **使用 Raspberry Pi 3 進行感側器資料蒐集**
 
 本範例使用 Raspberry Pi 3 (RPi) 與 NodeMCU 建構一環境資訊蒐集系統，範例分為3部份
 - envinfo_server：使用RPi作為主機接收所有感側器回傳的資料
 - envinfo_client_rpi：使用RPi作為感側器的示範
 - envinfo_client_nodemcu：使用NodeMCU作為感側器的示範
 
-## 目錄
+## **目錄**
 0. 系統架構說明
 1. RPi 作業系統安裝、設定與套件更新
 2. 將 RPi 打造成無線存取點 (Wireless Access Point, WAP)
@@ -15,22 +15,29 @@
     - 程式碼設定與試運行
     - 生產環境佈署
 
-### 系統架構說明
+### **0. 系統架構說明**
 <這裡放一張圖並說明>
 
-### RPi 作業系統安裝、設定與套件更新
-1. RPi 系統安裝
-請參考 INSTALLING OPERATING SYSTEM IMAGES (https://www.raspberrypi.org/documentation/installation/installing-images/)
+### **1. RPi 作業系統安裝、設定與套件更新**
+(1) RPi 系統安裝    
+    請參考 [INSTALLING OPERATING SYSTEM IMAGES](https://www.raspberrypi.org/documentation/installation/installing-images/)
 
-1.2. 環境設定
-請參考 RASPI-CONFIG (https://www.raspberrypi.org/documentation/configuration/raspi-config.md)
+(2) 環境設定    
+    請參考 [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md)
 
-1.3. 套件庫更新
+(3) 套件庫更新   
+<pre>
 $ sudo apt-get update -y && sudo apt-get upgrade -y
+</pre>
 
-1.4. 網路組態設定
+### **2. 將 RPi 打造成無線存取點 (Wireless Access Point, WAP)**
+(1) 網路組態設定
+<pre>
 $ sudo nano /etc/network/interfaces
-
+</pre>
+    修改文件內容  
+    (注意：網路界面名稱可能因為 Predictable Network Interface Names 而與本說明不同)
+<pre>
 auto eth0
 iface eth0 inet dhcp
 
@@ -40,54 +47,84 @@ iface wlan0 inet static
     netmask 255.255.255.0
     network 10.10.0.0
     broadcast 10.10.0.255
+</pre>
 
-1.5. 關閉 dhcpcd 功能
+(2) 關閉 dhcpcd 功能
+<pre>
 $ sudo systemctl disable dhcpcd
+</pre>
 
-1.6. 安裝 hostapd ，將RPi的wifi作為WAP
+(3) 安裝 hostapd ，將RPi的wifi作為WAP
+<pre>
 $ sudo apt-get install hostapd
+</pre>
 
-1.7. 設定hostapd.conf
+(4) 設定hostapd.conf
+<pre>
 $ sudo nano /etc/hostapd/hostapd.conf
-
+</pre>
+    修改文件內容
+<pre>
 # This is the name of the WiFi interface we configured above
 interface=wlan0
+
 # Use the nl80211 driver with the brcmfmac driver
 driver=nl80211
+
 # This is the name of the network
 ssid=Pi3-AP
+
 # Use the 2.4GHz band
 hw_mode=g
+
 # Use channel 6
 channel=6
+
 # Enable 802.11n
 ieee80211n=1
+
 # Enable WMM
 wmm_enabled=1
+
 # Enable 40MHz channels with 20ns guard interval
 ht_capab=[HT40][SHORT-GI-20][DSSS_CCK-40]
+
 # Accept all MAC addresses
 macaddr_acl=0
+
 # Use WPA authentication
 auth_algs=1
+
 # Require clients to know the network name
 ignore_broadcast_ssid=0
+
 # Use WPA2
 wpa=2
+
 # Use a pre-shared key
 wpa_key_mgmt=WPA-PSK
+
 # The network passphrase
 wpa_passphrase=raspberry
+
 # Use AES, instead of TKIP
 rsn_pairwise=CCMP
+</pre>
 
-1.8. 測試hostapd是否運作正常，使用裝置連入WAP
+(5) 測試hostapd是否運作正常
+<pre>
 $ sudo hostapd /etc/hostapd/hostapd.conf
+</pre>
+    使用裝置連入WAP
 
-1.9. 修改預設 hostapd 設定
+(6) 修改預設 hostapd 設定
+<pre>
 $ sudo nano /etc/default/hostapd
-將其變更為：
+</pre>
+    修改文件內容
+<pre>
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
+</pre>
 
 1.10. 安裝DNAMASQ
 $ sudo apt-get install dnsmasq
