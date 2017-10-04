@@ -198,7 +198,7 @@ $ git clone https://github.com/chilinwei/envinfo_server.git
 <pre>
 $ sudo apt-get install mariadb-server
 </pre>
-(2) MariaDB 安全行設定
+(2) MariaDB 安全性設定
 <pre>
 $ sudo mysql_secure_installation
 </pre>
