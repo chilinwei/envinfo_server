@@ -9,12 +9,12 @@
 0. [系統架構說明](#0-系統架構說明)
 1. [RPi 作業系統安裝、設定與套件更新](#1-rpi作業系統安裝設定與套件更新)
 2. [將 RPi 打造成無線存取點 (Wireless Access Point, WAP)](#2-將-rpi-打造成無線存取點-wireless-access-point-wap)
-3. [安裝與佈署本範例程](#3-安裝與佈署本範例程式)
+3. [安裝與部署本範例程](#3-安裝與部署本範例程式)
     - [取得範例程式碼](#取得範例程式碼)
-    - [MariaDB 安裝、設定與資料庫佈署](#mariadb-安裝設定與資料庫佈署)
+    - [MariaDB 安裝、設定與資料庫部署](#mariadb-安裝設定與資料庫部署)
     - [建立資料庫、資料表與登入帳號](#建立資料庫資料表與登入帳號)
     - [程式碼設定與試運行](#程式碼設定與試運行)
-    - [生產環境佈署 (使用 gunicorn + nginx + systemd)](#生產環境佈署-使用-gunicorn--nginx--systemd)
+    - [生產環境部署 (使用 gunicorn + nginx + systemd)](#生產環境部署-使用-gunicorn--nginx--systemd)
 
 ### **0. 系統架構說明**
 本範例使用 Raspberry Pi 3 (RPi) 與 NodeMCU 建構一環境資訊蒐集系統。設計上client以無線網路方式透過master提供的RESTful api將感測器的數值與PiCamera拍攝的照片儲存於其中，使用者可透過瀏覽器查詢。
@@ -180,11 +180,11 @@ $ sudo nano /etc/hosts
 <pre>
 $ sudo apt-get install git
 </pre>
-(2) 建立應用程式佈署用的資料夾
+(2) 建立應用程式部署用的資料夾
 <pre>
 $ sudo mkdir /var/www/webapps && cd /var/www/webapps
 </pre>
-(3) 修改佈署資料夾的擁有者
+(3) 修改部署資料夾的擁有者
 <pre>
 $ sudo chown pi:pi /var/www/webapps
 </pre>
@@ -193,7 +193,7 @@ $ sudo chown pi:pi /var/www/webapps
 $ git clone https://github.com/chilinwei/envinfo_server.git
 </pre>
 
-#### MariaDB 安裝、設定與資料庫佈署
+#### MariaDB 安裝、設定與資料庫部署
 (1) 安裝 mariadb-server 套件
 <pre>
 $ sudo apt-get install mariadb-server
@@ -288,7 +288,7 @@ $ source venv/bin/activate
 (venv) $ deactivate
 </pre>
 
-#### 生產環境佈署 (使用 gunicorn + nginx + systemd)
+#### 生產環境部署 (使用 gunicorn + nginx + systemd)
 (1) 建立 systemd daemon
 <pre>
 $ sudo nano /etc/systemd/system/envinfo.service
