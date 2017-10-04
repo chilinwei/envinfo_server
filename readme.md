@@ -117,14 +117,14 @@ $ sudo hostapd /etc/hostapd/hostapd.conf
 </pre>
     使用裝置連入WAP
 
-(6) 修改預設 hostapd 設定
-<pre>
+(6) 修改預設 hostapd 設定     
+<code>
 $ sudo nano /etc/default/hostapd
-</pre>
-    修改文件內容
-<pre>
+</code>     
+修改文件內容  
+<code>
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
-</pre>
+</code>
 
 1.10. 安裝DNAMASQ
 $ sudo apt-get install dnsmasq
