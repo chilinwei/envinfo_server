@@ -1,17 +1,25 @@
 # 使用 Raspberry Pi 3 進行感側器資料蒐集
 
-## 說明：
 本範例使用 Raspberry Pi 3 (RPi) 與 NodeMCU 建構一環境資訊蒐集系統，範例分為3部份
-* envinfo_server：使用RPi作為主機接收所有感側器回傳的資料
-* envinfo_client_rpi：使用RPi作為感側器的示範
-* envinfo_client_nodemcu：使用NodeMCU作為感側器的示範
+- envinfo_server：使用RPi作為主機接收所有感側器回傳的資料
+- envinfo_client_rpi：使用RPi作為感側器的示範
+- envinfo_client_nodemcu：使用NodeMCU作為感側器的示範
 
-安裝：
-<envinfo_server>
+## 目錄
+0. 系統架構說明
+1. RPi 作業系統安裝、設定與套件更新
+2. 將 RPi 打造成無線存取點 (Wireless Access Point, WAP)
+3. 安裝與佈署本範例程式
+    - 取得範例程式碼
+    - MariaDB 安裝、設定與資料庫佈署
+    - 程式碼設定與試運行
+    - 生產環境佈署
 
-1.將 RPi 設定為區域網路型的無線存取點 (Wireless Access Point, WAP)
+### 系統架構說明
+<這裡放一張圖並說明>
 
-1.1. RPi 系統安裝
+### RPi 作業系統安裝、設定與套件更新
+1. RPi 系統安裝
 請參考 INSTALLING OPERATING SYSTEM IMAGES (https://www.raspberrypi.org/documentation/installation/installing-images/)
 
 1.2. 環境設定
