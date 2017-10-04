@@ -6,19 +6,19 @@
 - envinfo_client_nodemcu：使用NodeMCU作為感側器的示範
 
 ## **目錄**
-0. 系統架構說明
-1. RPi 作業系統安裝、設定與套件更新
-2. 將 RPi 打造成無線存取點 (Wireless Access Point, WAP)
-3. 安裝與佈署本範例程式
-    - 取得範例程式碼
-    - MariaDB 安裝、設定與資料庫佈署
-    - 程式碼設定與試運行
-    - 生產環境佈署 (使用 gunicorn + nginx + systemd)
+0. [系統架構說明](#系統架構說明)
+1. [RPi 作業系統安裝、設定與套件更新](#RPi作業系統安裝、設定與套件更新)
+2. [將 RPi 打造成無線存取點 (Wireless Access Point, WAP)](#將\ RPi\ 打造成無線存取點\ (Wireless\ Access\ Point,\ WAP))
+3. [安裝與佈署本範例程](#安裝與佈署本範例程)
+    - [取得範例程式碼](#取得範例程式碼)
+    - [MariaDB 安裝、設定與資料庫佈署](#MariaDB\ 安裝、設定與資料庫佈署)
+    - [程式碼設定與試運行](#程式碼設定與試運行)
+    - [生產環境佈署 (使用 gunicorn + nginx + systemd)](#生產環境佈署 (使用 gunicorn + nginx + systemd))
 
 ### **0. 系統架構說明**
 <這裡放一張圖並說明>
 
-### **1. RPi 作業系統安裝、設定與套件更新**
+### **1. RPi作業系統安裝、設定與套件更新**
 (1) RPi 系統安裝    
 請參考 [INSTALLING OPERATING SYSTEM IMAGES](https://www.raspberrypi.org/documentation/installation/installing-images/)
 
@@ -171,11 +171,6 @@ $ sudo nano /etc/hosts
 </pre>
 
 ### **3. 安裝與佈署本範例程式**
-
-    - 取得範例程式碼
-    - MariaDB 安裝、設定與資料庫佈署
-    - 程式碼設定與試運行
-    - 生產環境佈署 (使用 gunicorn + nginx + systemd)
 
 #### 取得範例程式碼
 (1) 從 GitHub 取得範例程式碼    
