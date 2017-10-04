@@ -1,9 +1,9 @@
 # **使用 Raspberry Pi 3 進行感測器資料蒐集**
 
 本範例使用 Raspberry Pi 3 (RPi) 與 NodeMCU 建構一環境資訊蒐集系統，範例分為3部份
-- envinfo_server：使用RPi作為主機接收所有感測器回傳的資料
-- envinfo_client_rpi：使用RPi作為感測器的示範
-- envinfo_client_nodemcu：使用NodeMCU作為感測器的示範
+- [envinfo_server](https://github.com/chilinwei/envinfo_server)：使用RPi作為主機接收所有感測器回傳的資料
+- [envinfo_client_rpi](https://github.com/chilinwei/envinfo_client_rpi)：使用RPi作為感測器的示範
+- [envinfo_client_nodemcu](https://github.com/chilinwei/envinfo_client_nodemcu)：使用NodeMCU作為感測器的示範
 
 ## **目錄**
 0. [系統架構說明](#0-系統架構說明)
@@ -17,7 +17,8 @@
     - [生產環境佈署 (使用 gunicorn + nginx + systemd)](#生產環境佈署-使用-gunicorn--nginx--systemd)
 
 ### **0. 系統架構說明**
-<這裡放一張圖並說明>
+本範例使用 Raspberry Pi 3 (RPi) 與 NodeMCU 建構一環境資訊蒐集系統。設計上client以無線網路方式透過master提供的RESTful api將感測器的數值與PiCamera拍攝的照片儲存於其中，使用者可透過瀏覽器查詢。
+![](/pic1.png)
 
 ### **1. RPi作業系統安裝、設定與套件更新**
 (1) RPi 系統安裝    
