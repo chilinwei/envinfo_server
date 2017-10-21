@@ -1,4 +1,4 @@
-# **使用 Raspberry Pi 3 進行感測器資料蒐集**
+# **使用 Raspberry Pi 3 進行感測器資料蒐集 (RPi server)**
 
 本範例使用 Raspberry Pi 3 (RPi) 與 NodeMCU 建構一環境資訊蒐集系統，範例分為3部份
 - [envinfo_server](https://github.com/chilinwei/envinfo_server)：使用RPi作為主機接收所有感測器回傳的資料
